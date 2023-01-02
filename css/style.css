@@ -1,0 +1,270 @@
+:root {
+  --main-color: #2196f3;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1b1b1b;
+  padding: 20px 0;
+}
+
+.container {
+  color: white;
+  width: 700px;
+  max-width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+  box-shadow: 5px 5px 10px -5px #272727,
+    -5px -5px 10px -5px rgba(0, 0, 0, 0.504);
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .container {
+    height: 100vh;
+  }
+}
+
+.container h1 {
+  color: #1b1b1b;
+  text-align: center;
+  text-shadow: 10px 10px 20px #aaaaaa, -10px -10px 20px #aaaaaa;
+}
+
+.container .add-task input {
+  width: 100%;
+  padding: 20px;
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  box-shadow: 5px 5px 10px -5px #272727,
+    -5px -5px 10px -5px rgba(0, 0, 0, 0.504);
+}
+
+.container .task-menu {
+  display: flex;
+  justify-content: space-between;
+  height: calc(100% - 119.2px);
+}
+
+@media (max-width: 767px) {
+  .container .task-menu {
+    flex-direction: column;
+  }
+}
+
+.container .task-menu .nav {
+  flex-basis: 20%;
+}
+
+.container .task-menu .nav ul {
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media (max-width: 767px) {
+  .container .task-menu .nav ul {
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.container .task-menu .nav ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px -5px #272727 inset,
+    -5px -5px 10px -5px rgba(0, 0, 0, 0.504) inset;
+  transition: 0.5s;
+}
+
+@media (max-width: 767px) {
+  .container .task-menu .nav ul li {
+    flex-basis: 40%;
+  }
+  .container .task-menu .nav ul li:last-child {
+    flex-basis: 100%;
+  }
+}
+
+.container .task-menu .nav ul li:hover {
+  box-shadow: 5px 5px 10px -5px #272727,
+    -5px -5px 10px -5px rgba(0, 0, 0, 0.504);
+  color: var(--main-color);
+}
+
+.container .task-menu .nav ul .active {
+  box-shadow: 5px 5px 10px -5px #272727,
+    -5px -5px 10px -5px rgba(0, 0, 0, 0.504);
+  color: var(--main-color);
+}
+
+.container .task-menu .nav ul .not-in-use {
+  pointer-events: none;
+}
+
+.container .task-menu .tasks {
+  background-color: rgba(0, 0, 0, 0.205);
+  flex-basis: 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  height: 100%;
+  overflow-y: scroll;
+  transition: 0.5s;
+  position: relative;
+}
+
+.container .task-menu .tasks::-webkit-scrollbar {
+  background-color: #272727;
+  box-shadow: 0 0 5px #1b1b1b inset;
+}
+
+.container .task-menu .tasks::-webkit-scrollbar-thumb {
+  background-color: #1b1b1b;
+  box-shadow: 0 0 5px black inset;
+}
+
+.container .task-menu .tasks .all-checkboxes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-weight: bold;
+}
+
+.container .task-menu .tasks .update {
+  text-align: center;
+  font-weight: bold;
+}
+
+.container .task-menu .tasks .done-task {
+  font-weight: bold;
+  text-align: center;
+}
+
+.container .task-menu .tasks .task {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  background-color: #1b1b1b;
+  gap: 10px;
+  transition: 0.5s;
+  position: relative;
+  cursor: pointer;
+}
+
+.container .task-menu .tasks .task::after {
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #343434;
+  transition: 0.5s;
+}
+
+.container .task-menu .tasks .done {
+  background-color: #313131;
+}
+
+.container .task-menu .tasks .done::after {
+  color: var(--main-color);
+}
+
+.container .task-menu .tasks .task span {
+  padding: 5px 10px;
+  font-weight: bold;
+  color: var(--main-color);
+  box-shadow: 0 0 5px var(--main-color);
+}
+
+.container .task-menu .tasks .task input {
+  transition: 0.5s;
+  border: none;
+  background-color: red;
+}
+
+.container .task-menu .tasks .task p {
+  padding: 0 10px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.container .task-menu .tasks .empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.515);
+}
+
+.container .desgin {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  /* background-color: #2195f31c; */
+  box-shadow: 5px 5px 10px -5px #272727,
+    -5px -5px 10px -5px rgba(0, 0, 0, 0.504);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.container .circle-1 {
+  top: -40%;
+  left: -20%;
+}
+
+.container .circle-2 {
+  bottom: -40%;
+  right: -20%;
+}
+
+@media (max-width: 767px) {
+  .container .desgin {
+    width: 200px;
+    height: 200px;
+  }
+  .container .circle-1 {
+    top: -10%;
+    left: -10%;
+  }
+
+  .container .circle-2 {
+    bottom: -10%;
+    right: -10%;
+  }
+}
